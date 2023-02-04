@@ -16,7 +16,8 @@ const cors = require("cors");
 const port = 5000;
 
 // to allow your frontend
-app.use(cors({ origin: ["http://localhost:3000"] }));
+app.use(cors({ origin: ["http://localhost:3000", process.env.HOSTED_URL] }));
+
 
 //middleware
 app.use("/user", userRouters);
