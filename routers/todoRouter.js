@@ -44,6 +44,18 @@ router.get("/getbyid/:id", (req, res) => {
     });
 });
 
+//get by user id
+router.get("/getbyuserid/:userid", (req, res) => {
+  todoItemsModel
+    .find({ users: req.params.userid })
+    .then((data) => {
+      res.status(200).json(data);
+    })
+    .catch((err) => {
+      res.status(500).json(err);
+    });
+});
+
 //let's update item
 router.put("/update/:id", (req, res) => {
   todoItemsModel
